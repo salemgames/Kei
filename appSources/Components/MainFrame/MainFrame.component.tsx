@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {View, Text, Button} from 'react-native';
+import {Text} from 'react-native';
 import KeiFrontView from '../Screens/KeiFrontView.component';
 import {Container, LightBulbButton} from './MainFrame.style';
 import {
