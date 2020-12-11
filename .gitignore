@@ -23,7 +23,7 @@ DerivedData
 
 # Android/IntelliJ
 #
-/android/
+/android
 build/
 .idea
 .gradle
@@ -50,8 +50,8 @@ out/
 # release/
 
 # Gradle files
-.gradle/
-build/
+android/gradle/
+android/build/
 
 # Local configuration file (sdk path, etc)
 local.properties
@@ -98,8 +98,7 @@ captures/
 freeline.py
 freeline/
 freeline_project_description.json
-
-# fastlane
+/android
 fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots
