@@ -23,27 +23,12 @@ DerivedData
 
 # Android/IntelliJ
 #
+/android/
+build/
 .idea
 .gradle
 local.properties
 *.iml
-/android/
-
-# Android Studio
-.project
-.settings
-.classpath
-
-# Gradle
-/build/
-/RNTester/android/app/build/
-/RNTester/android/app/gradle/
-/RNTester/android/app/gradlew
-/RNTester/android/app/gradlew.bat
-/ReactAndroid/build/
-/ReactAndroid/gradle/
-/ReactAndroid/gradlew
-/ReactAndroid/gradlew.bat
 
 # Visual Studio Code
 #
@@ -77,4 +62,3 @@ buck-out/
 
 # CocoaPods
 /ios/Pods/
-node_modules
