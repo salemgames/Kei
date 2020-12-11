@@ -23,12 +23,16 @@ DerivedData
 
 # Android/IntelliJ
 #
-android/
-build/
-.idea
-.gradle
-local.properties
 *.iml
+.gradle
+/local.properties
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/build
+/captures
+.externalNativeBuild
+.idea
 
 # Visual Studio Code
 #
