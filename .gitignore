@@ -26,6 +26,7 @@ DerivedData
 
 .gradle
 /app
+/build
 /.idea
 *.iml
 local.properties
