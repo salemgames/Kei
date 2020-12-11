@@ -61,4 +61,4 @@ buck-out/
 
 # CocoaPods
 /ios/Pods/
-node_module
+node_modules
