@@ -7,33 +7,76 @@ import {
   sendStringToDevice,
 } from '../../BlueToothServices/BlueToothServices';
 const MainFrame: React.FC = () => {
-  const [lightStateOn, setLightState] = useState<boolean>(false);
+  const [lightMainStateOn, setMainLightState] = useState<boolean>(false);
+  const [eyesLightState, setEyesLightState] = useState<boolean>(false);
+  const [eyesMovement, setEyesMovement] = useState<boolean>(false);
+  const [eyesLidsStateOn, setEyesLidsMovement] = useState<boolean>(false);
 
-  const ToggleMainLightOnandOff = () => {
-    setLightState((lightStateOn) => !lightStateOn);
+
+  const toggleMainLightOnandOff = () => {
+    setMainLightState((lightMainStateOn) => !lightMainStateOn);
   };
+  const toggleEyesLightOnandOff = () => {
+    setEyesLightState((eyesLightState) => !eyesLightState);
+  };
+
+  const moveEyesOnandOff = () => {
+    setEyesMovement((eyesMovement) => !eyesMovement);
+  };
+
+  const moveEyesLidsOnandOff = () => {
+    sendStringToDevice('bGlkc09u');
+  };
+
 
   useEffect(() => {
     requestBluetoothPermission();
   }, []);
 
   useEffect(() => {
-    if (lightStateOn === true) {
+    if (lightMainStateOn === true) {
       sendStringToDevice('bWFpbkxpZ2h0T24=');
     }
-    if (lightStateOn === false) {
+    if (lightMainStateOn === false) {
       sendStringToDevice('bWFpbkxpZ2h0T2Zm');
     }
-  }, [lightStateOn]);
+  }, [lightMainStateOn]);
+
+  useEffect(() => {
+    if (eyesLightState === true) {
+      sendStringToDevice('ZXllc0xpZ2h0T24=');
+    }
+    if (eyesLightState === false) {
+      sendStringToDevice('ZXllc0xpZ2h0T2Zm');
+    }
+  }, [eyesLightState]);
+
+  useEffect(() => {
+    if (eyesMovement === true) {
+      sendStringToDevice('ZXllc0dvUmlnaHQ=');
+    }
+    if (eyesMovement === false) {
+      sendStringToDevice('ZXllc0dvTGVmdA==');
+    }
+  }, [eyesMovement]);
+console.log("eyesLightStateOn",eyesLightState)
 
   return (
     <>
       <Container>
-        
-        <LightBulbButton onPress={() => ToggleMainLightOnandOff()}>
+        <LightBulbButton onPress={() => toggleMainLightOnandOff()}>
           <Text>Main Light On"</Text>
         </LightBulbButton>
-        <KeiFrontView   />
+        <LightBulbButton onPress={() => toggleEyesLightOnandOff()}>
+          <Text>Eyes Light On"</Text>
+        </LightBulbButton>
+        <LightBulbButton onPress={() => moveEyesOnandOff()}>
+          <Text>Move Eyes"</Text>
+        </LightBulbButton>
+        <LightBulbButton onPress={() => moveEyesLidsOnandOff()}>
+          <Text>Move Lids"</Text>
+        </LightBulbButton>
+        <KeiFrontView />
       </Container>
     </>
   );

@@ -1,6 +1,8 @@
 import styled from 'styled-components/native';
 export const Container = styled.View`
   display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
   background-color: #000000;
   width: 100%;
   align-items: flex-end;
@@ -9,8 +11,8 @@ export const Container = styled.View`
 `;
 
 export const LightBulbButton = styled.TouchableOpacity`
-  width: 100px;
-  height: 100px;
+  width: 50px;
+  height: 50px;
   border-radius: 4px;
   background-color: lightblue;
   padding: 10px;

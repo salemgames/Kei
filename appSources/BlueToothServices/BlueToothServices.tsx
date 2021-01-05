@@ -9,12 +9,12 @@ export const scanAndConnect = () => {
       return;
     }
     console.log('Name: ' + device?.name + '| ID: ' + device?.id);
-    if (device?.name === 'MyESP32' || device?.id === '30:AE:A4:06:1A:EA') {
+    if (device?.name === 'kei' || device?.id === '98:4F:EE:0F:4B:2E') {
       manager.stopDeviceScan();
       device
         .connect()
         .then((device) => {
-          console.log('Connected to Kei esp32');
+          console.log('Connected to Kei genuino 101');
           return device.discoverAllServicesAndCharacteristics();
         })
         .then((device) => {
