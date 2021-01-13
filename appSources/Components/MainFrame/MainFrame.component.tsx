@@ -3,18 +3,24 @@ import {Text} from 'react-native';
 import KeiFrontView from '../Screens/KeiFrontView.component';
 import {Container, LightBulbButton} from './MainFrame.style';
 import {
+  mainLightOnOff,
+  selectMainLight,
+} from '../../features/mainLightControler/mainLightControlerSlice';
+import {useSelector, useDispatch} from 'react-redux';
+import {
   requestBluetoothPermission,
   sendStringToDevice,
 } from '../../BlueToothServices/BlueToothServices';
 const MainFrame: React.FC = () => {
-  const [lightMainStateOn, setMainLightState] = useState<boolean>(false);
   const [eyesLightState, setEyesLightState] = useState<boolean>(false);
   const [eyesMovement, setEyesMovement] = useState<boolean>(false);
-  const [eyesLidsStateOn, setEyesLidsMovement] = useState<boolean>(false);
 
+  const mainLightBooleanValue = useSelector(selectMainLight);
 
+  const dispatch = useDispatch();
+  console.log('light', mainLightBooleanValue);
   const toggleMainLightOnandOff = () => {
-    setMainLightState((lightMainStateOn) => !lightMainStateOn);
+    dispatch(mainLightOnOff());
   };
   const toggleEyesLightOnandOff = () => {
     setEyesLightState((eyesLightState) => !eyesLightState);
@@ -28,19 +34,18 @@ const MainFrame: React.FC = () => {
     sendStringToDevice('bGlkc09u');
   };
 
-
   useEffect(() => {
     requestBluetoothPermission();
   }, []);
 
   useEffect(() => {
-    if (lightMainStateOn === true) {
+    if (mainLightBooleanValue === true) {
       sendStringToDevice('bWFpbkxpZ2h0T24=');
     }
-    if (lightMainStateOn === false) {
+    if (mainLightBooleanValue === false) {
       sendStringToDevice('bWFpbkxpZ2h0T2Zm');
     }
-  }, [lightMainStateOn]);
+  }, [mainLightBooleanValue]);
 
   useEffect(() => {
     if (eyesLightState === true) {
@@ -59,7 +64,6 @@ const MainFrame: React.FC = () => {
       sendStringToDevice('ZXllc0dvTGVmdA==');
     }
   }, [eyesMovement]);
-console.log("eyesLightStateOn",eyesLightState)
 
   return (
     <>

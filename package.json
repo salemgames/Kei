@@ -10,11 +10,15 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.5.0",
+    "@types/react-redux": "^7.1.15",
     "@types/styled-components": "^5.1.4",
     "react": "16.13.1",
     "react-native": "0.63.3",
     "react-native-ble-plx": "^2.0.2",
     "react-native-svg": "^12.1.0",
+    "react-redux": "^7.2.2",
+    "redux": "^4.0.5",
     "styled-components": "^5.2.1"
   },
   "devDependencies": {
