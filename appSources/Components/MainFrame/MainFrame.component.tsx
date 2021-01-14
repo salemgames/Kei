@@ -2,73 +2,76 @@ import React, {useEffect, useState} from 'react';
 import {Text} from 'react-native';
 import KeiFrontView from '../Screens/KeiFrontView.component';
 import {Container, LightBulbButton} from './MainFrame.style';
+import DeviceControlerUnit from '../DeviceControlerUnit/DeviceControlerUnit.component';
 import {
-  mainLightOnOff,
-  selectMainLight,
-} from '../../features/mainLightControler/mainLightControlerSlice';
+  selectLightMode,
+  toggleMainLight,
+  toggleEyesLight,
+} from '../../features/LightControler/LightControlerSlice';
 import {useSelector, useDispatch} from 'react-redux';
 import {
   requestBluetoothPermission,
   sendStringToDevice,
-} from '../../BlueToothServices/BlueToothServices';
+} from '../../services/blueToothServices/blueToothServices.service';
 const MainFrame: React.FC = () => {
-  const [eyesLightState, setEyesLightState] = useState<boolean>(false);
   const [eyesMovement, setEyesMovement] = useState<boolean>(false);
-
-  const mainLightBooleanValue = useSelector(selectMainLight);
+  const lightControler = useSelector(selectLightMode);
 
   const dispatch = useDispatch();
-  console.log('light', mainLightBooleanValue);
-  const toggleMainLightOnandOff = () => {
-    dispatch(mainLightOnOff());
-  };
-  const toggleEyesLightOnandOff = () => {
-    setEyesLightState((eyesLightState) => !eyesLightState);
-  };
 
-  const moveEyesOnandOff = () => {
-    setEyesMovement((eyesMovement) => !eyesMovement);
-  };
+  console.log('light', lightControler);
 
-  const moveEyesLidsOnandOff = () => {
-    sendStringToDevice('bGlkc09u');
-  };
+  // const toggleMainLightOnandOff = () => {
+  //   console.log('toogle main light', lightControler.mainLightStatus);
+  //   dispatch(toggleMainLight());
+  // };
+  // const toggleEyesLightOnandOff = () => {
+  //   dispatch(toggleEyesLight());
+  // };
 
-  useEffect(() => {
-    requestBluetoothPermission();
-  }, []);
+  // const moveEyesOnandOff = () => {
+  //   setEyesMovement((eyesMovement) => !eyesMovement);
+  // };
 
-  useEffect(() => {
-    if (mainLightBooleanValue === true) {
-      sendStringToDevice('bWFpbkxpZ2h0T24=');
-    }
-    if (mainLightBooleanValue === false) {
-      sendStringToDevice('bWFpbkxpZ2h0T2Zm');
-    }
-  }, [mainLightBooleanValue]);
+  // const moveEyesLidsOnandOff = () => {
+  //   sendStringToDevice('bGlkc09u');
+  // };
 
-  useEffect(() => {
-    if (eyesLightState === true) {
-      sendStringToDevice('ZXllc0xpZ2h0T24=');
-    }
-    if (eyesLightState === false) {
-      sendStringToDevice('ZXllc0xpZ2h0T2Zm');
-    }
-  }, [eyesLightState]);
+  // useEffect(() => {
+  //   requestBluetoothPermission();
+  // }, []);
 
-  useEffect(() => {
-    if (eyesMovement === true) {
-      sendStringToDevice('ZXllc0dvUmlnaHQ=');
-    }
-    if (eyesMovement === false) {
-      sendStringToDevice('ZXllc0dvTGVmdA==');
-    }
-  }, [eyesMovement]);
+  // useEffect(() => {
+  //   if (lightControler.mainLightStatus === true) {
+  //     sendStringToDevice('bWFpbkxpZ2h0T24=');
+  //   }
+  //   if (lightControler.mainLightStatus === false) {
+  //     sendStringToDevice('bWFpbkxpZ2h0T2Zm');
+  //   }
+  // }, [lightControler.mainLightStatus]);
+
+  // useEffect(() => {
+  //   if (lightControler.eyesLightStatus === true) {
+  //     sendStringToDevice('ZXllc0xpZ2h0T24=');
+  //   }
+  //   if (lightControler.eyesLightStatus) {
+  //     sendStringToDevice('ZXllc0xpZ2h0T2Zm');
+  //   }
+  // }, [lightControler.eyesLightStatus]);
+
+  // useEffect(() => {
+  //   if (eyesMovement === true) {
+  //     sendStringToDevice('ZXllc0dvUmlnaHQ=');
+  //   }
+  //   if (eyesMovement === false) {
+  //     sendStringToDevice('ZXllc0dvTGVmdA==');
+  //   }
+  // }, [eyesMovement]);
 
   return (
     <>
       <Container>
-        <LightBulbButton onPress={() => toggleMainLightOnandOff()}>
+        {/* <LightBulbButton onPress={() => toggleMainLightOnandOff()}>
           <Text>Main Light On"</Text>
         </LightBulbButton>
         <LightBulbButton onPress={() => toggleEyesLightOnandOff()}>
@@ -79,7 +82,16 @@ const MainFrame: React.FC = () => {
         </LightBulbButton>
         <LightBulbButton onPress={() => moveEyesLidsOnandOff()}>
           <Text>Move Lids"</Text>
-        </LightBulbButton>
+        </LightBulbButton> */}
+
+        <DeviceControlerUnit
+          buttonText={'Main Light'}
+          turnOffDeviceStringMessageForBLE={'mainLightOff'}
+          turnOnDeviceStringMessageForBLE={'mainLightOn'}
+          reducerActions={toggleMainLight()}
+          deviceStatus={lightControler.mainLightStatus}
+          deviceType="light"
+        />
         <KeiFrontView />
       </Container>
     </>

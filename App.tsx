@@ -10,7 +10,7 @@
 
 import React, {useEffect} from 'react';
 import MainFrame from './appSources/Components/MainFrame/MainFrame.component';
-import {requestBluetoothPermission} from './appSources/BlueToothServices/BlueToothServices';
+import {requestBluetoothPermission} from './appSources/services/blueToothServices/blueToothServices.service';
 import store from './appSources/store/store';
 import {Provider} from 'react-redux';
 declare const global: {HermesInternal: null | {}};
