@@ -1,4 +1,5 @@
 import React, {useEffect} from 'react';
+import {ImageBackground, StyleSheet} from 'react-native';
 import {useDispatch} from 'react-redux';
 import {
   requestBluetoothPermission,
@@ -6,16 +7,72 @@ import {
 } from '../../services/blueToothServices/blueToothServices.service';
 import {encodeStringToBase64} from '../../utils/base64StringEncoder/base64StringEncoder';
 import {StandardControlButton} from './DeviceControlerUnit.style';
-interface Props {
+
+type ReducerModuleProps = {
+  type: 'reducerActionModule';
   buttonText: string;
   turnOffDeviceStringMessageForBLE: string;
   turnOnDeviceStringMessageForBLE: string;
-  reducerActions: {payload: undefined; type: string};
+  reducerActions?: {payload: undefined; type: string};
   deviceStatus: boolean;
   deviceType: 'stepperMotor' | 'light' | 'servoMotor';
-}
+};
 
-const DeviceControlerUnit: React.FC<Props> = (props) => {
+type SimpleModuleProps = {
+  type: 'simpleActionModule';
+  buttonText: string;
+  stringMessageForBLE: string;
+  deviceType: 'stepperMotor' | 'light' | 'servoMotor';
+  turnOnDeviceStringMessageForBLE: string;
+};
+
+const SimpleDeviceControlerUnit: React.FC<SimpleModuleProps> = (props) => {
+  useEffect(() => {
+    requestBluetoothPermission();
+  }, []);
+
+  const toggleDeviceOnOff = () => {
+    sendStringToDevice(
+      encodeStringToBase64(props.turnOnDeviceStringMessageForBLE),
+    );
+  };
+
+  const image = {uri: './assets/bulb.png'};
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      flexDirection: 'column',
+    },
+    image: {
+      flex: 1,
+      resizeMode: 'cover',
+      justifyContent: 'center',
+    },
+    text: {
+      color: 'white',
+      fontSize: 42,
+      fontWeight: 'bold',
+      textAlign: 'center',
+      backgroundColor: '#000000a0',
+    },
+  });
+  return (
+    <>
+      <StandardControlButton
+        deviceType={props.deviceType}
+        onPress={() => toggleDeviceOnOff()}>
+        <ImageBackground
+          source={require('../../../assets/bulb.png')}
+          style={styles.image}
+        />
+      </StandardControlButton>
+    </>
+  );
+};
+
+const DeviceControlerUnitWithReducer: React.FC<ReducerModuleProps> = (
+  props,
+) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -36,17 +93,51 @@ const DeviceControlerUnit: React.FC<Props> = (props) => {
   }, [props.deviceStatus]);
 
   const toggleDeviceOnOff = () => {
-    dispatch(props.reducerActions);
+    if (props.deviceType !== 'servoMotor') dispatch(props.reducerActions);
+    if (props.deviceType === 'servoMotor') {
+      sendStringToDevice(
+        encodeStringToBase64(props.turnOnDeviceStringMessageForBLE),
+      );
+    }
   };
 
+  const image = {uri: './assets/bulb.png'};
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      flexDirection: 'column',
+    },
+    image: {
+      flex: 1,
+      resizeMode: 'cover',
+      justifyContent: 'center',
+    },
+    text: {
+      color: 'white',
+      fontSize: 42,
+      fontWeight: 'bold',
+      textAlign: 'center',
+      backgroundColor: '#000000a0',
+    },
+  });
   return (
-    <div>
+    <>
       <StandardControlButton
         deviceType={props.deviceType}
-        onPress={() => toggleDeviceOnOff()}
-      />
-    </div>
+        onPress={() => toggleDeviceOnOff()}>
+        <ImageBackground
+          source={require('../../../assets/bulb.png')}
+          style={styles.image}
+        />
+      </StandardControlButton>
+    </>
   );
 };
 
-export default DeviceControlerUnit;
+export const DeviceControlerUnit = (
+  props: ReducerModuleProps | SimpleModuleProps,
+) => {
+  if (props.type === 'reducerActionModule')
+    return <DeviceControlerUnitWithReducer {...props} />;
+  else return <SimpleDeviceControlerUnit {...props} />;
+};
