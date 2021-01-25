@@ -9,7 +9,7 @@
  */
 
 import React, {useEffect} from 'react';
-import MainFrame from './appSources/Components/MainFrame/MainFrame.component';
+import MainFrameView from './appSources/view/MainFrame.view';
 import {requestBluetoothPermission} from './appSources/services/blueToothServices/blueToothServices.service';
 import store from './appSources/store/store';
 import {Provider} from 'react-redux';
@@ -23,7 +23,7 @@ const App = () => {
   return (
     <>
       <Provider store={store}>
-        <MainFrame />
+        <MainFrameView />
       </Provider>
     </>
   );

@@ -1,7 +1,7 @@
 import {createSlice} from '@reduxjs/toolkit';
 
 export const motorsReducersSlice = createSlice({
-  name: 'counter',
+  name: 'motorController',
   initialState: {
     stepperMotorStatus: false,
   },

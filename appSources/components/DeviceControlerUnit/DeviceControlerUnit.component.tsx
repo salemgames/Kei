@@ -13,7 +13,7 @@ type ReducerModuleProps = {
   buttonText: string;
   turnOffDeviceStringMessageForBLE: string;
   turnOnDeviceStringMessageForBLE: string;
-  reducerActions?: {payload: undefined; type: string};
+  reducerActions: {payload: undefined; type: string};
   deviceStatus: boolean;
   deviceType: 'stepperMotor' | 'light' | 'servoMotor';
 };
@@ -101,7 +101,6 @@ const DeviceControlerUnitWithReducer: React.FC<ReducerModuleProps> = (
     }
   };
 
-  const image = {uri: './assets/bulb.png'};
   const styles = StyleSheet.create({
     container: {
       flex: 1,
@@ -126,7 +125,7 @@ const DeviceControlerUnitWithReducer: React.FC<ReducerModuleProps> = (
         deviceType={props.deviceType}
         onPress={() => toggleDeviceOnOff()}>
         <ImageBackground
-          source={require('../../../assets/bulb.png')}
+          source={props.deviceType === "light" ? require('../../../assets/bulb.png') : require('../../../assets/gear.png')}
           style={styles.image}
         />
       </StandardControlButton>
