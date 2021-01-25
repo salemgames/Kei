@@ -1,5 +1,5 @@
 import React from 'react';
-import KeiFrontView from '../Screens/KeiFrontView.component';
+import KeiFrontView from '../ImagesComponents/MainBackGroundImage.component';
 import {Container} from './MainFrame.style';
 import {DeviceControlerUnit} from '../DeviceControlerUnit/DeviceControlerUnit.component';
 import {

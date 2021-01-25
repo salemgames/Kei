@@ -1,7 +1,7 @@
 import React from 'react';
-import KeiFrontView from '../Components/Screens/KeiFrontView.component';
+import KeiFrontView from '../components/ImagesComponents/MainBackGroundImage.component';
 import {Container} from './MainFrame.style';
-import {DeviceControlerUnit} from '../Components/DeviceControlerUnit/DeviceControlerUnit.component';
+import {DeviceControlerUnit} from '../components/DeviceControlerUnit/DeviceControlerUnit.component';
 import {
   toggleMainLight,
   toggleEyesLight,
