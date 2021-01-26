@@ -9,9 +9,11 @@ export const lightSlice = createSlice({
   reducers: {
     toggleMainLight: (state) => {
       state.mainLightStatus = !state.mainLightStatus;
+      console.log("toggleMainLight", toggleMainLight)
     },
     toggleEyesLight: (state) => {
       state.eyesLightStatus = !state.eyesLightStatus;
+      console.log("toggleEyesLight", toggleEyesLight)
     },
   },
 });

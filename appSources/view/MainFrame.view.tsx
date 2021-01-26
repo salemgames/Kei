@@ -15,31 +15,22 @@ const MainFrame: React.FC = () => {
  
   const lightControler = store.getState().mainLightInterruptor;
   const motorControler = store.getState().motorControler;
-
+console.log("motorControler store", motorControler.stepperMotorStatus)
   if (lightControler !== undefined && motorControler !== undefined) {
     return (
       <>
         <Container>
-          <DeviceControlerUnit
-            type="reducerActionModule"
-            buttonText={'Main Light'}
-            turnOffDeviceStringMessageForBLE={'mainLightOff'}
-            turnOnDeviceStringMessageForBLE={'mainLightOn'}
-            reducerActions={toggleEyesLight()}
-            deviceStatus={lightControler.mainLightStatus}
-            deviceType="light"
-          />
 
           <DeviceControlerUnit
             type="reducerActionModule"
-            buttonText={'Main Light '}
+            buttonText={'Eyes Light'}
             turnOffDeviceStringMessageForBLE={'eyesLightOff'}
             turnOnDeviceStringMessageForBLE={'eyesLightOn'}
-            reducerActions={toggleMainLight()}
+            reducerActions={toggleEyesLight()}
             deviceStatus={lightControler.eyesLightStatus}
             deviceType="light"
           />
-          <DeviceControlerUnit
+          {/* <DeviceControlerUnit
             type="reducerActionModule"
             buttonText={'Eyes Controler'}
             turnOffDeviceStringMessageForBLE={'eyesGoRight'}
@@ -47,7 +38,7 @@ const MainFrame: React.FC = () => {
             reducerActions={toggleStepperDirection()}
             deviceStatus={motorControler.stepperMotorStatus}
             deviceType="stepperMotor"
-          />
+          /> */}
 
           <KeiFrontView />
         </Container>

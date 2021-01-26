@@ -80,15 +80,19 @@ const DeviceControlerUnitWithReducer: React.FC<ReducerModuleProps> = (
   }, []);
 
   useEffect(() => {
+
+    console.log("device status from device controler unit", props.deviceStatus)
     if (props.deviceStatus === true) {
       sendStringToDevice(
         encodeStringToBase64(props.turnOnDeviceStringMessageForBLE),
       );
+      console.log('sending string', props.turnOffDeviceStringMessageForBLE);
     }
     if (props.deviceStatus === false) {
       sendStringToDevice(
         encodeStringToBase64(props.turnOffDeviceStringMessageForBLE),
       );
+      console.log('sending string', props.turnOffDeviceStringMessageForBLE);
     }
   }, [props.deviceStatus]);
 
@@ -98,6 +102,7 @@ const DeviceControlerUnitWithReducer: React.FC<ReducerModuleProps> = (
       sendStringToDevice(
         encodeStringToBase64(props.turnOnDeviceStringMessageForBLE),
       );
+      console.log('sending string', props.turnOnDeviceStringMessageForBLE);
     }
   };
 
@@ -125,7 +130,11 @@ const DeviceControlerUnitWithReducer: React.FC<ReducerModuleProps> = (
         deviceType={props.deviceType}
         onPress={() => toggleDeviceOnOff()}>
         <ImageBackground
-          source={props.deviceType === "light" ? require('../../../assets/bulb.png') : require('../../../assets/gear.png')}
+          source={
+            props.deviceType === 'light'
+              ? require('../../../assets/bulb.png')
+              : require('../../../assets/gear.png')
+          }
           style={styles.image}
         />
       </StandardControlButton>
