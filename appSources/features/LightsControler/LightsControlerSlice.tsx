@@ -1,7 +1,7 @@
 import {createSlice} from '@reduxjs/toolkit';
 
 export const lightSlice = createSlice({
-  name: 'counter',
+  name: 'lighter',
   initialState: {
     mainLightStatus: false,
     eyesLightStatus: false,
@@ -9,15 +9,16 @@ export const lightSlice = createSlice({
   reducers: {
     toggleMainLight: (state) => {
       state.mainLightStatus = !state.mainLightStatus;
-      console.log("toggleMainLight", toggleMainLight)
     },
     toggleEyesLight: (state) => {
       state.eyesLightStatus = !state.eyesLightStatus;
-      console.log("toggleEyesLight", toggleEyesLight)
+      console.log("state.eyesLightStatus",state.eyesLightStatus)
     },
   },
 });
 
 export const {toggleMainLight, toggleEyesLight} = lightSlice.actions;
-export const selectLightMode = (state: any) => state.mainLightInterruptor;
+export const selectLightMode = (state: any) => state.lighter;
+
+
 export default lightSlice.reducer;

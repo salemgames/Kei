@@ -4,7 +4,7 @@ import motorReducer from '../features/motorsControler/motorsControlerSlice';
 
 export default configureStore({
   reducer: {
-    mainLightInterruptor: mainLightReducer,
-    motorControler: motorReducer,
+    lighter: mainLightReducer,
+    motorController: motorReducer,
   },
 });

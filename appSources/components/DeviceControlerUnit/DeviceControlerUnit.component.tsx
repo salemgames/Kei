@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {ImageBackground, StyleSheet} from 'react-native';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {
   requestBluetoothPermission,
   sendStringToDevice,
@@ -37,7 +37,7 @@ const SimpleDeviceControlerUnit: React.FC<SimpleModuleProps> = (props) => {
     );
   };
 
-  const image = {uri: './assets/bulb.png'};
+  const bulbImage = {uri: './assets/bulb.png'};
   const styles = StyleSheet.create({
     container: {
       flex: 1,
@@ -62,7 +62,7 @@ const SimpleDeviceControlerUnit: React.FC<SimpleModuleProps> = (props) => {
         deviceType={props.deviceType}
         onPress={() => toggleDeviceOnOff()}>
         <ImageBackground
-          source={require('../../../assets/bulb.png')}
+          source={bulbImage}
           style={styles.image}
         />
       </StandardControlButton>
@@ -80,19 +80,15 @@ const DeviceControlerUnitWithReducer: React.FC<ReducerModuleProps> = (
   }, []);
 
   useEffect(() => {
-
-    console.log("device status from device controler unit", props.deviceStatus)
     if (props.deviceStatus === true) {
       sendStringToDevice(
         encodeStringToBase64(props.turnOnDeviceStringMessageForBLE),
       );
-      console.log('sending string', props.turnOffDeviceStringMessageForBLE);
     }
     if (props.deviceStatus === false) {
       sendStringToDevice(
         encodeStringToBase64(props.turnOffDeviceStringMessageForBLE),
       );
-      console.log('sending string', props.turnOffDeviceStringMessageForBLE);
     }
   }, [props.deviceStatus]);
 
@@ -102,7 +98,6 @@ const DeviceControlerUnitWithReducer: React.FC<ReducerModuleProps> = (
       sendStringToDevice(
         encodeStringToBase64(props.turnOnDeviceStringMessageForBLE),
       );
-      console.log('sending string', props.turnOnDeviceStringMessageForBLE);
     }
   };
 
@@ -130,11 +125,7 @@ const DeviceControlerUnitWithReducer: React.FC<ReducerModuleProps> = (
         deviceType={props.deviceType}
         onPress={() => toggleDeviceOnOff()}>
         <ImageBackground
-          source={
-            props.deviceType === 'light'
-              ? require('../../../assets/bulb.png')
-              : require('../../../assets/gear.png')
-          }
+          source={props.deviceType === "light" ? require('../../../assets/bulb.png') : require('../../../assets/gear.png')}
           style={styles.image}
         />
       </StandardControlButton>

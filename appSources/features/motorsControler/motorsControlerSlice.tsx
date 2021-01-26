@@ -13,5 +13,5 @@ export const motorsReducersSlice = createSlice({
 });
 
 export const {toggleStepperDirection} = motorsReducersSlice.actions;
-export const selectMotorActions = (state: any) => state.motorReducer;
+export const selectMotorActions = (state: any) => state.motorController;
 export default motorsReducersSlice.reducer;
