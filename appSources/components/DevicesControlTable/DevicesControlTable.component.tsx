@@ -9,7 +9,7 @@ import {
 import {
   toggleStepperDirection,
   selectMotorActions,
-} from '../../features/motorsControler/motorsControlerSlice';
+} from '../../features/MotorsControler/MotorsControlerSlice';
 import store from '../../store/store';
 
 const ControlTable: React.FC = () => {

@@ -1,6 +1,6 @@
 import {configureStore} from '@reduxjs/toolkit';
 import mainLightReducer from '../features/LightsControler/LightsControlerSlice';
-import motorReducer from '../features/motorsControler/motorsControlerSlice';
+import motorReducer from '../features/MotorsControler/MotorsControlerSlice';
 
 export default configureStore({
   reducer: {
