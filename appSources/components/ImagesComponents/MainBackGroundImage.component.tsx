@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {SvgXml} from 'react-native-svg';
 
-const KeiFrontView = () => {
+const MainBackGroundImage = () => {
   const xml = `<?xml version="1.0" encoding="UTF-8" standalone="no"?>
   <svg
      xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -562,4 +562,4 @@ const KeiFrontView = () => {
   );
 };
 
-export default KeiFrontView;
+export default MainBackGroundImage;

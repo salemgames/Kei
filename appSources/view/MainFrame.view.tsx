@@ -1,46 +1,46 @@
 import React from 'react';
-import KeiFrontView from '../components/ImagesComponents/MainBackGroundImage.component';
+import MainBackGroundImage from '../components/ImagesComponents/MainBackGroundImage.component';
 import {Container} from './MainFrame.style';
-import {DeviceControlerUnit} from '../components/DeviceControlerUnit/DeviceControlerUnit.component';
-import {useDispatch, useSelector} from 'react-redux';
+import {DeviceControlerUnit} from '../components/DeviceControllerStandardModule/DeviceControllerStandardModule.component';
+import ControlTable from '../components/ControlTable/ControlTable.component';
+import {useSelector} from 'react-redux';
 import {
   toggleMainLight,
   toggleEyesLight,
-  selectLightMode
+  selectLightMode,
 } from '../features/LightsControler/LightsControlerSlice';
 import {
   toggleStepperDirection,
-  selectMotorActions
+  selectMotorActions,
 } from '../features/motorsControler/motorsControlerSlice';
 import store from '../store/store';
 
 const MainFrame: React.FC = () => {
- 
-  const lightControler = store.getState().lighter;
-  const motorControler = store.getState().motorController;
-  const light = useSelector(selectLightMode);
-  const motor = useSelector(selectMotorActions);
+  // const lightControler = store.getState().lightController;
+  // const motorControler = store.getState().motorController;
+  // const light = useSelector(selectLightMode);
+  // const motor = useSelector(selectMotorActions);
 
-  if (lightControler !== undefined && motorControler !== undefined) {
-    return (
-      <>
-        <Container>
-          <DeviceControlerUnit
+  return (
+    <>
+      <Container>
+        <ControlTable />
+        {/* <DeviceControlerUnit
             type="reducerActionModule"
             buttonText={'Main Light'}
             turnOffDeviceStringMessageForBLE={'mainLightOff'}
             turnOnDeviceStringMessageForBLE={'mainLightOn'}
-            reducerActions={toggleEyesLight()}
+            reducerActions={toggleMainLight()}
             deviceStatus={light.mainLightStatus}
             deviceType="light"
           />
 
           <DeviceControlerUnit
             type="reducerActionModule"
-            buttonText={'Main Light '}
+            buttonText={'EyesLight'}
             turnOffDeviceStringMessageForBLE={'eyesLightOff'}
             turnOnDeviceStringMessageForBLE={'eyesLightOn'}
-            reducerActions={toggleMainLight()}
+            reducerActions={toggleEyesLight()}
             deviceStatus={light.eyesLightStatus}
             deviceType="light"
           />
@@ -52,14 +52,12 @@ const MainFrame: React.FC = () => {
             reducerActions={toggleStepperDirection()}
             deviceStatus={motor.stepperMotorStatus}
             deviceType="stepperMotor"
-          />
+          /> */}
 
-          <KeiFrontView />
-        </Container>
-      </>
-    );
-  }
-  return <></>;
+        <MainBackGroundImage />
+      </Container>
+    </>
+  );
 };
 
 export default MainFrame;

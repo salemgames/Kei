@@ -6,7 +6,7 @@ import {
   sendStringToDevice,
 } from '../../services/blueToothServices/blueToothServices.service';
 import {encodeStringToBase64} from '../../utils/base64StringEncoder/base64StringEncoder';
-import {StandardControlButton} from './DeviceControlerUnit.style';
+import {StandardControlButton} from './DeviceControllerStandardModule.style';
 
 type ReducerModuleProps = {
   type: 'reducerActionModule';

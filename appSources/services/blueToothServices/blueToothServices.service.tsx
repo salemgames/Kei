@@ -8,6 +8,8 @@ export const scanAndConnect = () => {
     if (error) {
       return;
     }
+
+    /// Replace the ID by the ID of your bluetooth Device
     if (device?.name === 'kei' || device?.id === '98:4F:EE:0F:4B:2E') {
       manager.stopDeviceScan();
       device
