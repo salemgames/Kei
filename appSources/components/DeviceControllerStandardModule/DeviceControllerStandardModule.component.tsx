@@ -125,7 +125,7 @@ const DeviceControlerUnitWithReducer: React.FC<ReducerModuleProps> = (
           source={
             props.deviceType === 'light'
               ? require('../../../assets/bulb.png')
-              : require('../../../assets/gear.png')
+              : require('../../../assets/iconMotor.png')
           }
           style={styles.image}
         />

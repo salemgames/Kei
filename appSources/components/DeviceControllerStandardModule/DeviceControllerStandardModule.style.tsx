@@ -18,7 +18,7 @@ export const StandardControlButton = styled.TouchableOpacity<StandardControlButt
   width: 50px;
   height: 50px;
   border-radius: 4px;
-  background-color: ${props => props.deviceType === "light" ? "cyan" : props.deviceType === "stepperMotor" ? "yellow" : props.deviceType === "servoMotor" ? "green" : null};
+  background-color: ${props => props.deviceType === "light" ? "cyan" : props.deviceType === "stepperMotor" ? "white" : props.deviceType === "servoMotor" ? "green" : null};
   padding: 10px;
   margin: 10px;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.8);

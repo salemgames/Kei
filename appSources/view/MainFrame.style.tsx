@@ -2,12 +2,11 @@ import styled from 'styled-components/native';
 export const Container = styled.View`
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
-  background-color: #000000;
+  background-color: #ffffff;
   width: 100%;
   align-items: flex-end;
   height: 100%;
-  padding: 10px;
+
 `;
 
 export const LightBulbButton = styled.TouchableOpacity`

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="256"
+   height="256"
+   viewBox="0 0 67.733332 67.733335"
+   version="1.1"
+   id="svg1304"
+   inkscape:version="1.0.1 (0767f8302a, 2020-10-17)"
+   sodipodi:docname="icone_motors.svg">
+  <defs
+     id="defs1298" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.35"
+     inkscape:cx="460.55219"
+     inkscape:cy="721.16871"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     inkscape:document-rotation="0"
+     showgrid="false"
+     gridtolerance="1"
+     objecttolerance="1"
+     inkscape:window-width="1515"
+     inkscape:window-height="968"
+     inkscape:window-x="122"
+     inkscape:window-y="27"
+     inkscape:window-maximized="0"
+     units="px" />
+  <metadata
+     id="metadata1301">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="opacity:0.994;mix-blend-mode:normal;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:2.95849;stroke-linejoin:round;stroke-miterlimit:1.5;stroke-dasharray:none;stroke-opacity:1"
+       id="rect1867"
+       width="64.009933"
+       height="64.009933"
+       x="2.0147107"
+       y="1.1906846" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer5"
+     inkscape:label="Layer 2">
+    <circle
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.74075;stroke-linejoin:round;stroke-miterlimit:1.5;stroke-dasharray:none;stroke-opacity:1"
+       id="path1898"
+       cx="17.621479"
+       cy="32.785469"
+       r="7.6407442" />
+    <ellipse
+       style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:2.02451;stroke-linejoin:round;stroke-miterlimit:1.5;stroke-dasharray:none;stroke-opacity:1"
+       id="path1900"
+       cx="17.552755"
+       cy="32.785469"
+       rx="2.3921936"
+       ry="2.3921943" />
+    <circle
+       style="opacity:0.14614;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.74075;stroke-linejoin:round;stroke-miterlimit:1.5;stroke-dasharray:none;stroke-opacity:1"
+       id="path1898-9"
+       cx="40.647255"
+       cy="32.785469"
+       r="7.6407442" />
+    <ellipse
+       style="opacity:0.343452;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:2.02451;stroke-linejoin:round;stroke-miterlimit:1.5;stroke-dasharray:none;stroke-opacity:1"
+       id="path1900-1"
+       cx="40.578548"
+       cy="32.785469"
+       rx="2.3921936"
+       ry="2.3921943" />
+    <circle
+       style="opacity:0.500476;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.74075;stroke-linejoin:round;stroke-miterlimit:1.5;stroke-dasharray:none;stroke-opacity:1"
+       id="path1898-2"
+       cx="28.573925"
+       cy="32.785469"
+       r="7.6407442" />
+    <ellipse
+       style="opacity:0.500476;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:2.02451;stroke-linejoin:round;stroke-miterlimit:1.5;stroke-dasharray:none;stroke-opacity:1"
+       id="path1900-7"
+       cx="28.505186"
+       cy="32.785469"
+       rx="2.3921936"
+       ry="2.3921943" />
+    <circle
+       style="opacity:0.14614;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.74075;stroke-linejoin:round;stroke-miterlimit:1.5;stroke-dasharray:none;stroke-opacity:1"
+       id="path1898-9-0"
+       cx="48.26548"
+       cy="32.785469"
+       r="7.6407442" />
+    <ellipse
+       style="opacity:0.11154;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:2.02451;stroke-linejoin:round;stroke-miterlimit:1.5;stroke-dasharray:none;stroke-opacity:1"
+       id="path1900-1-9"
+       cx="48.19677"
+       cy="32.785469"
+       rx="2.3921936"
+       ry="2.3921943" />
+  </g>
+</svg>
