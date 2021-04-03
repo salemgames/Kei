@@ -1,10 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
 import MainBackGroundImage from '../components/ImagesComponents/MainBackGroundImage.component';
 import {Container} from './MainFrame.style';
 import ControlTable from '../components/DevicesControlTable/DevicesControlTable.component';
-import {ImageBackground, Image, StyleSheet} from 'react-native';
+import {Image, StyleSheet} from 'react-native';
 import Eyes from '../components/eyes/Eyes.component';
+
 const MainFrame: React.FC = () => {
+  const [moveEyes, setMoveEyes] = useState<boolean>(false);
+
   const styles = StyleSheet.create({
     portrait: {
       resizeMode: 'cover',
@@ -15,17 +18,22 @@ const MainFrame: React.FC = () => {
     },
   });
 
+  const moveEyesFunc = () => {
+    setMoveEyes((moveEyes) => !moveEyes);
+    console.log("moveEyes", moveEyes)
+  };
+
   return (
     <>
       <Container>
-        <Eyes moveEyes={false} />
+        <Eyes moveEyes={moveEyes} />
         <Image
           source={require('../../assets/portrait.png')}
           style={styles.portrait}
         />
 
         <MainBackGroundImage />
-        <ControlTable />
+        <ControlTable onClick={() => moveEyesFunc()} />
       </Container>
     </>
   );

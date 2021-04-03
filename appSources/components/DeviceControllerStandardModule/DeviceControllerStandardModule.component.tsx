@@ -16,6 +16,7 @@ type ReducerModuleProps = {
   reducerActions: {payload: undefined; type: string};
   deviceStatus: boolean;
   deviceType: 'stepperMotor' | 'light' | 'servoMotor';
+  onClick?: () => void;
 };
 
 type SimpleModuleProps = {
@@ -24,6 +25,7 @@ type SimpleModuleProps = {
   stringMessageForBLE: string;
   deviceType: 'stepperMotor' | 'light' | 'servoMotor';
   turnOnDeviceStringMessageForBLE: string;
+  onClick?: () => void;
 };
 
 const SimpleDeviceControlerUnit: React.FC<SimpleModuleProps> = (props) => {
@@ -32,6 +34,7 @@ const SimpleDeviceControlerUnit: React.FC<SimpleModuleProps> = (props) => {
   }, []);
 
   const toggleDeviceOnOff = () => {
+   props.onClick ? props.onClick() : null;
     sendStringToDevice(
       encodeStringToBase64(props.turnOnDeviceStringMessageForBLE),
     );
@@ -90,12 +93,14 @@ const DeviceControlerUnitWithReducer: React.FC<ReducerModuleProps> = (
   }, [props.deviceStatus]);
 
   const toggleDeviceOnOff = () => {
+    console.log("pressed")
     if (props.deviceType !== 'servoMotor') dispatch(props.reducerActions);
     if (props.deviceType === 'servoMotor') {
       sendStringToDevice(
         encodeStringToBase64(props.turnOnDeviceStringMessageForBLE),
       );
     }
+    props.onClick ? props.onClick() : null;
   };
 
   const styles = StyleSheet.create({

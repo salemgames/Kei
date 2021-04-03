@@ -13,35 +13,37 @@ const Eyes: React.FC<Props> = ({moveEyes}: Props) => {
   const animatedValue = useRef(new Animated.Value(0)).current;
   const translateX = animatedValue.interpolate({
     inputRange: [0, 1, 2],
-    outputRange: [0, 50, -50],
+    outputRange: [0, destination, 0],
   });
 
-  const shakeButton = () => {
+  const moveRight = (condition: boolean) => {
     Animated.sequence([
       Animated.timing(animatedValue, {
-        toValue: 2,
+        toValue: condition ? 2 : 0,
         duration: 1000,
         useNativeDriver: false,
       }),
-      Animated.timing(animatedValue, {
+      /*       Animated.timing(animatedValue, {
         toValue: 1,
         duration: 1000,
         useNativeDriver: false,
-      }),
-    ]).start(shakeButton);
+      }), */
+    ]).start();
   };
 
   React.useEffect(() => {
-    Animated.timing(animatedValue, {
+    moveRight(moveEyes);
+    /*     Animated.timing(animatedValue, {
       toValue: 1,
       duration: 1000,
       useNativeDriver: false,
-    }).start(shakeButton);
-  }, [animatedValue]);
+    }).start(moveRight); */
+  }, [moveEyes]);
 
   useEffect(() => {
-    if (moveEyes) setDestination(0);
+    if (moveEyes) setDestination(-50);
     if (moveEyes === false) setDestination(50);
+    console.log('moveEyes in control', moveEyes, destination);
   }, [moveEyes]);
 
   const styles = StyleSheet.create({

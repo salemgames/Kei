@@ -1,11 +1,8 @@
-import React, {useState, useEffect, useRef} from 'react';
-import {Animated, View} from 'react-native';
+import React, {useRef} from 'react';
+import {Animated} from 'react-native';
 import {SvgXml} from 'react-native-svg';
 
 const MainBackGroundImage = () => {
-  const [opacityValue, setOpacityValue] = useState<number>(0.4);
-  const [incrementBool, setIncrementBool] = useState<boolean>(true);
-
   const xml = `<?xml version="1.0" encoding="UTF-8" standalone="no"?>
   <svg width="100%"  preserveAspectRatio="YMax slice"  version="1.1" viewBox="0 0 158.75 215.37"  xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
   <g  fill="#000" >
@@ -13,11 +10,8 @@ const MainBackGroundImage = () => {
    <path transform="scale(.26458)" d="m285.17 567.64c-16.459 11.585-45.887 27.396-45.887 27.396 0.94196 16.299 11.258 24.569 30.947 37.611 22.594 6.3825 58.753 7.3121 74.78 1.6979 14.847-5.8515 30.906-14.052 35.996-34.164 0 0-28.57-23.402-49.51-29.463-11.463 4.3627-33.774 3.9131-46.326-3.0781zm63.842 36.916c6.9522 0.0664 12.564 0.88597 13.762 2.5977 4.9606 3.9003 2.3554 10.814-5.1094 15.234-7.392 5.4041-22.186 8.6621-22.186 8.6621s3.335-5.7413 1-13.531c-5.4396-6.6147-11.79-6.0641-19.184-7.6856 4.8177-3.41 20.13-5.3879 31.717-5.2773z" filter="url(#filter1118)" stroke-width="1px"/>
   </g>
  </svg>
- 
-
   `;
 
-  const translation = useRef(new Animated.Value(0)).current;
   const animatedValue = useRef(new Animated.Value(0)).current;
   const opacity = animatedValue.interpolate({
     inputRange: [0, 1],
@@ -28,12 +22,22 @@ const MainBackGroundImage = () => {
     Animated.sequence([
       Animated.timing(animatedValue, {
         toValue: 0,
-        duration: 800,
+        duration: 500,
         useNativeDriver: false,
       }),
       Animated.timing(animatedValue, {
         toValue: 0.6,
-        duration: 800,
+        duration: 400,
+        useNativeDriver: false,
+      }),
+      Animated.timing(animatedValue, {
+        toValue: 0.2,
+        duration: 400,
+        useNativeDriver: false,
+      }),
+      Animated.timing(animatedValue, {
+        toValue: 0.8,
+        duration: 400,
         useNativeDriver: false,
       }),
     ]).start(shakeButton);
@@ -41,7 +45,7 @@ const MainBackGroundImage = () => {
   React.useEffect(() => {
     Animated.timing(animatedValue, {
       toValue: 0.6,
-      duration: 2000,
+      duration: 50,
       useNativeDriver: false,
     }).start(shakeButton);
   }, [animatedValue]);

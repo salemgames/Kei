@@ -13,12 +13,15 @@ import {
 } from '../../features/MotorsControler/MotorsControlerSlice';
 import store from '../../store/store';
 
-const ControlTable: React.FC = () => {
+interface Props {
+  onClick: () => void;
+}
+
+const ControlTable: React.FC<Props> = (props) => {
   const lightControler = store.getState().lightController;
   const motorControler = store.getState().motorController;
   const light = useSelector(selectLightMode);
   const motor = useSelector(selectMotorActions);
-
 
   if (lightControler !== undefined && motorControler !== undefined) {
     return (
@@ -51,6 +54,7 @@ const ControlTable: React.FC = () => {
             reducerActions={toggleStepperDirection()}
             deviceStatus={motor.stepperMotorStatus}
             deviceType="stepperMotor"
+            onClick={() => props.onClick()}
           />
         </Container>
       </>
